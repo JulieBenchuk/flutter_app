@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Padding(
-      padding: EdgeInsets.all(40),
-      child: Align(
-          alignment: Alignment.topLeft,
-          child: ConstrainedBox(
-            constraints: BoxConstraints.tightFor(width: 250, height: 200),
-            child: Text(
-              "Some words bla bla bla bla kkkk!!!!",
-              textDirection: TextDirection.ltr,
-              style: TextStyle(fontSize: 40),
-            )
-          ))));
+  runApp(Container(
+      margin: EdgeInsets.symmetric(vertical: 50),
+      color: Colors.pink,
+      padding: EdgeInsets.all(50),
+      child: Column(
+        children: <Widget> [
+          Expanded(child: Container(color: Colors.lightBlue,), flex: 1,),
+          Expanded(child: Container(color: Colors.green,), flex: 4),
+          Expanded(child: Container(color: Colors.yellow,), flex: 5),
+        ],
+      )));
 }
