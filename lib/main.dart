@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Align(
-    alignment: FractionalOffset(0.7, 0.5),
-    child: Text(
-      "Some words",
-      textDirection: TextDirection.ltr,
-      style: TextStyle(fontSize: 40),
-    )
-  ));
+  runApp(Padding(
+      padding: EdgeInsets.all(40),
+      child: Align(
+          alignment: Alignment.topLeft,
+          child: ConstrainedBox(
+            constraints: BoxConstraints.tightFor(width: 250, height: 200),
+            child: Text(
+              "Some words bla bla bla bla kkkk!!!!",
+              textDirection: TextDirection.ltr,
+              style: TextStyle(fontSize: 40),
+            )
+          ))));
 }
