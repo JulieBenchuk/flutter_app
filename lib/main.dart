@@ -33,19 +33,19 @@ class CryptoCurrencyListAPP extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontSize: 15),
           )),
-      home: const MyHomePage(),
+      home: const CryptoListScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class CryptoListScreen extends StatefulWidget {
+  const CryptoListScreen({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<CryptoListScreen> createState() => _CryptoListScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _CryptoListScreenState extends State<CryptoListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +68,25 @@ class _MyHomePageState extends State<MyHomePage> {
               '10 000\$',
               style: Theme.of(context).textTheme.bodySmall,
             ),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const CoinItemScreen()));
+            },
           ),
         ));
+  }
+}
+
+class CoinItemScreen extends StatelessWidget {
+  const CoinItemScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Bitcoin"),
+      ),
+      body: Center(child: const Text("Bitcoin")),
+    );
   }
 }
