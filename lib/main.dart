@@ -14,6 +14,10 @@ class CryptoCurrencyListAPP extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.black87,
         primarySwatch: Colors.lightGreen,
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(color: Colors.white60, fontWeight: FontWeight.w500, fontSize: 20),
+          bodySmall: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 10),
+        )
       ),
       home: const MyHomePage(),
     );
@@ -31,26 +35,18 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-            child: Text(
-          "Home Page",
-          textAlign: TextAlign.center,
-          textDirection: TextDirection.ltr,
-        )),
-      ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("Some text in center"),
-          ],
+        appBar: AppBar(
+          title: const Center(
+              child: Text(
+            "Home Page",
+          )),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
-    );
+        body: ListView.builder(
+          itemCount: 7,
+          itemBuilder: (context, i) => ListTile(
+            title: Text('Bitcoin', style: Theme.of(context).textTheme.bodyMedium),
+            subtitle: Text('10 000\$', style: Theme.of(context).textTheme.bodySmall,),
+          ),
+        ));
   }
 }
