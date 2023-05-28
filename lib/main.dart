@@ -33,7 +33,10 @@ class CryptoCurrencyListAPP extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontSize: 15),
           )),
-      home: const CryptoListScreen(),
+      routes: {
+        '/': (context) => const CryptoListScreen(),
+        '/coin': (context) => const CoinItemScreen(),
+      },
     );
   }
 }
@@ -69,8 +72,7 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
               style: Theme.of(context).textTheme.bodySmall,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const CoinItemScreen()));
+              Navigator.of(context).pushNamed('/coin');
             },
           ),
         ));
@@ -86,7 +88,7 @@ class CoinItemScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Bitcoin"),
       ),
-      body: Center(child: const Text("Bitcoin")),
+      body: const Center(child: Text("Bitcoin")),
     );
   }
 }
