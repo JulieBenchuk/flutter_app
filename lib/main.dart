@@ -94,13 +94,7 @@ class _CoinItemScreenState extends State<CoinItemScreen> {
   @override
   void didChangeDependencies() {
     final args = ModalRoute.of(context)?.settings.arguments;
-    if (args == null) {
-      print('You must provide args');
-      return;
-    }
-    if (args is! String) {
-      print('You must provide string');
-    }
+    assert(args != null && args is String, 'You must provide string args');
     coinName = args as String;
     setState(() {});
     super.didChangeDependencies();
@@ -109,9 +103,9 @@ class _CoinItemScreenState extends State<CoinItemScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Bitcoin"),
+        title: Text(coinName ?? '...'),
       ),
-      body: const Center(child: Text("Bitcoin")),
+      body: const Center(child: Text("BTCN")),
     );
   }
 }
