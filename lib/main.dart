@@ -1,7 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'features/coin_item/view/view.dart';
+import 'features/crypto_list/view/view.dart';
 
 void main() {
   runApp(const CryptoCurrencyListAPP());
@@ -39,73 +38,6 @@ class CryptoCurrencyListAPP extends StatelessWidget {
         '/': (context) => const CryptoListScreen(),
         '/coin': (context) => const CoinItemScreen(),
       },
-    );
-  }
-}
-
-class CryptoListScreen extends StatefulWidget {
-  const CryptoListScreen({super.key});
-
-  @override
-  State<CryptoListScreen> createState() => _CryptoListScreenState();
-}
-
-class _CryptoListScreenState extends State<CryptoListScreen> {
-  @override
-  Widget build(BuildContext context) {
-    final coinName = "Bitcoin";
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Home page"),
-        ),
-        body: ListView.separated(
-          itemCount: 7,
-          separatorBuilder: (context, i) => const Divider(),
-          itemBuilder: (context, i) => ListTile(
-            leading: SvgPicture.asset(
-              'assets/svg/bitcoin.svg',
-              width: 30,
-              height: 30,
-            ),
-            trailing: const Icon(Icons.arrow_forward_ios),
-            title:
-                Text(coinName, style: Theme.of(context).textTheme.bodyMedium),
-            subtitle: Text(
-              '10 000\$',
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-            onTap: () {
-              Navigator.of(context).pushNamed('/coin', arguments: coinName);
-            },
-          ),
-        ));
-  }
-}
-
-class CoinItemScreen extends StatefulWidget {
-  const CoinItemScreen({super.key});
-
-  @override
-  State<CoinItemScreen> createState() => _CoinItemScreenState();
-}
-
-class _CoinItemScreenState extends State<CoinItemScreen> {
-  String? coinName;
-  @override
-  void didChangeDependencies() {
-    final args = ModalRoute.of(context)?.settings.arguments;
-    assert(args != null && args is String, 'You must provide string args');
-    coinName = args as String;
-    setState(() {});
-    super.didChangeDependencies();
-  }
-
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(coinName ?? '...'),
-      ),
-      body: const Center(child: Text("BTCN")),
     );
   }
 }
