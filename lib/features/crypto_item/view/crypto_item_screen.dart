@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CoinItemScreen extends StatefulWidget {
-  const CoinItemScreen({super.key});
+class CryptoItemScreen extends StatefulWidget {
+  const CryptoItemScreen({super.key});
 
   @override
-  State<CoinItemScreen> createState() => _CoinItemScreenState();
+  State<CryptoItemScreen> createState() => _CryptoItemScreenState();
 }
 
-class _CoinItemScreenState extends State<CoinItemScreen> {
+class _CryptoItemScreenState extends State<CryptoItemScreen> {
   String? coinName;
   @override
   void didChangeDependencies() {
