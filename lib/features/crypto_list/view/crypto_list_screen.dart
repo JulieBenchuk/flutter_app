@@ -25,7 +25,7 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
         title: const Text("Home page"),
       ),
       body: cryptoList == null
-          ? const SizedBox()
+          ? const Center(child: CircularProgressIndicator())
           : ListView.separated(
               padding: const EdgeInsets.only(top: 20),
               itemCount: cryptoList!.length,
