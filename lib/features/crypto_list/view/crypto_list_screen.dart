@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/repositories/crypto_repository.dart';
-import 'package:flutter_app/repositories/models/crypto_coin.dart';
+import '../../../repositories/crypto_coins/crypto_coins.dart';
 import '../widgets/widgets.dart';
 
 class CryptoListScreen extends StatefulWidget {
@@ -25,7 +24,7 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
         title: const Text("Home page"),
       ),
       body: cryptoList == null
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: Text('loading...'))
           : ListView.separated(
               padding: const EdgeInsets.only(top: 20),
               itemCount: cryptoList!.length,

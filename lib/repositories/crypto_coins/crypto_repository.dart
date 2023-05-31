@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_app/repositories/models/crypto_coin.dart';
+import 'package:flutter_app/repositories/crypto_coins/crypto_coins.dart';
 
-class CryptoRepository {
+class CryptoRepository implements AbstractCryptoRepository {
+  @override
   Future<List<CryptoCoin>> getCryptoList() async {
     const String cryptoListURL =
         'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BNB,AID,CAG,DOV&tsyms=USD';
