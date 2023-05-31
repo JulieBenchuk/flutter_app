@@ -12,6 +12,11 @@ class CryptoListScreen extends StatefulWidget {
 
 class _CryptoListScreenState extends State<CryptoListScreen> {
   List<CryptoCoin>? cryptoList;
+  @override
+  void initState() {
+    _getCryptoList();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +27,16 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
       body: cryptoList == null
           ? const SizedBox()
           : ListView.separated(
+              padding: const EdgeInsets.only(top: 20),
               itemCount: cryptoList!.length,
               separatorBuilder: (context, i) => const Divider(),
               itemBuilder: (context, i) {
                 final coin = cryptoList![i];
                 return CoinTile(coin: coin);
               }),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.update_rounded),
-        onPressed: () async {
-          cryptoList = await CryptoRepository().getCryptoList();
-          setState(() {});
-        },
-      ),
     );
   }
+
+  Future<List<CryptoCoin>> _getCryptoList() async =>
+      cryptoList = await CryptoRepository().getCryptoList();
 }

@@ -4,7 +4,7 @@ import 'package:flutter_app/repositories/models/crypto_coin.dart';
 class CryptoRepository {
   Future<List<CryptoCoin>> getCryptoList() async {
     const String cryptoListURL =
-        'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BNB&tsyms=USD';
+        'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BNB,AID,CAG,DOV&tsyms=USD';
     final response = await Dio().get(cryptoListURL);
     final data = response.data as Map<String, dynamic>;
     final dataRAW = data['RAW'] as Map<String, dynamic>;
