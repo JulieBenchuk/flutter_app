@@ -24,10 +24,12 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
           : ListView.separated(
               itemCount: cryptoList!.length,
               separatorBuilder: (context, i) => const Divider(),
-              itemBuilder: (context, i) => CoinTile(coin: cryptoList![i]),
-            ),
+              itemBuilder: (context, i) {
+                final coin = cryptoList![i];
+                return CoinTile(coin: coin);
+              }),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.download_done),
+        child: const Icon(Icons.update_rounded),
         onPressed: () async {
           cryptoList = await CryptoRepository().getCryptoList();
           setState(() {});

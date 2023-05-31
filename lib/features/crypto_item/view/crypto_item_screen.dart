@@ -18,12 +18,13 @@ class _CryptoItemScreenState extends State<CryptoItemScreen> {
     super.didChangeDependencies();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(coinName ?? '...'),
       ),
-      body: const Center(child: Text("Inner Coin Info")),
+      body: Center(child: Text(coinName ?? '...')),
     );
   }
 }
